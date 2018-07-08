@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import PersonImage from './PersonImage';
 import PersonName from './PersonName';
 import Bubble from './Bubble.js';
+import VoteCounter from './VoteCounter';
 
 class Person extends Component {
   static propTypes = {
@@ -19,6 +20,7 @@ class Person extends Component {
   }
 
   handleClick() {
+    this.props.data.count += 1;
   	!this.state.oneup && this.setState({oneup: true});
   	setTimeout(() => {
       this.state.oneup && this.setState({oneup: false});
@@ -33,6 +35,7 @@ class Person extends Component {
     		<Bubble visible={oneup} text="👍" />
     		<PersonImage flipping={this.props.shouldFlip} image={this.props.data.image}/>
     		<PersonName name={this.props.data.name}/>
+        <VoteCounter count={this.props.data.count}/>
     	</div>
     );
   }

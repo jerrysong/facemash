@@ -16,7 +16,7 @@
 	background-size: cover;
 	@include box-shadow(0px 15px 12px 0px rgba(0,0,0,0.22), 0px 19px 38px 0px rgba(0,0,0,0.30));
 	@include transition(transform 0.3s cubic-bezier(.17,.67,.17,1.27));
-	@include perspective(800);
+	@include perspective(400);
 }
 
 .personFlipping {

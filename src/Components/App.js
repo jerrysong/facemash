@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import logo from '../logo.svg';
 
 // Components
 import Person from './Person';
@@ -7,35 +8,43 @@ import Person from './Person';
 var people = [
   {
     name: 'Aishwarya Rai',
-    image: './images/aishwarya.jpg'
+    image: './images/aishwarya.jpg',
+    count: 0
   },
   {
     name: 'Kate Upton',
-    image: './images/kate.jpg'
+    image: './images/kate.jpg',
+    count: 0
   },
   {
     name: 'Jennifer Lawrence',
-    image: './images/jennifer.jpg'
+    image: './images/jennifer.jpg',
+    count: 0
   },
   {
     name: 'Emilia Clarke',
-    image: './images/emilia.jpg'
+    image: './images/emilia.jpg',
+    count: 0
   },
   {
     name: 'Keira Knightley',
-    image: './images/keira.jpg'
+    image: './images/keira.jpg',
+    count: 0
   },
   {
     name: 'Scarlett Johansson',
-    image: './images/scarlett.jpg'
+    image: './images/scarlett.jpg',
+    count: 0
   },
   {
     name: 'Emma Stone',
-    image: './images/emmastone.jpg'
+    image: './images/emmastone.jpg',
+    count: 0
   },
   {
     name: 'Emma Watson',
-    image: './images/emmawatson.jpg'
+    image: './images/emmawatson.jpg',
+    count: 0
   }
 ];
 
@@ -87,18 +96,29 @@ class App extends Component {
   render() {
     var {current, toFlip} = this.state;
     return (
-      <div className="App">
-        <div className="separator">or</div>
-        { 
-          current.map((_, index) => {
-            return (<Person 
-              index={index}
-              data={this.data[current[index]]} 
-              next={this.nextPeople.bind(this)}
-              shouldFlip={index === toFlip}
-            />);
-          })
-        }
+      <div className="Home">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo" />
+          <h1 className="App-title">Facemash</h1>
+        </header>
+        <div className="App">
+          <div className="separator">or</div>
+          {
+            current.map((_, index) => {
+              return (<Person
+                index={index}
+                data={this.data[current[index]]}
+                next={this.nextPeople.bind(this)}
+                shouldFlip={index === toFlip}
+              />);
+            })
+          }
+        </div>
+        <footer className="Footer">
+          <div>
+              <p>Designed by Mark Zuckerberg @ Harvard Dorm</p>
+          </div>
+        </footer>
       </div>
     );
   }
